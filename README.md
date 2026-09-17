@@ -1,5 +1,3 @@
-Reads local Git repositories, Kamal hook events and deployment metadata; checks .kamal/secrets existence only; writes ~/.local/state/kamal; explicit hook setup also writes ~/.config/kamal/hook-tap and appends to project .kamal/hooks with backups; executes local CLI collectors and explicit actions; no network during default collection; optional SSH polling and user-approved Kamal terminal commands contact configured deploy hosts; no root.
-
 # Kamal
 
 <p>
@@ -8,7 +6,26 @@ Reads local Git repositories, Kamal hook events and deployment metadata; checks 
 <a href="https://github.com/tcballard/omarchy-badges"><img alt="Built for Omarchy: Plugin" height="20" src="https://raw.githubusercontent.com/tcballard/omarchy-badges/75975e5b5bf75e7ede3764bcd2950046f7abfe2c/badges/v1/omarchy-plugin.svg"></a>
 </p>
 
-**Development preview 0.1.0-preview.1** — built using Omarchy Plugin Skills v0.4.0.
+**Your deployments, in view.**
+
+A native Omarchy bar plugin for developers deploying with Kamal. See deployment activity recorded by local hooks, the last deployed revision and commits ahead, then open logs or stage deploy and rollback commands for review in your terminal. Remote polling is opt-in.
+
+On Omarchy Quattro, with the dependencies below installed:
+
+```sh
+omarchy plugin add https://github.com/tcballard/omarchy-plugin-kamal.git
+```
+
+Then [enable the plugin and add its bar widget](#use).
+
+**Development preview · 0.1.0-preview.1.** Portable tests and QML fixture checks pass; live Omarchy acceptance is still outstanding. [Verification](VERIFICATION.md) · [Current limits](docs/STATUS.md) · [View the fixture preview](preview.png).
+
+<details>
+<summary>Files, processes and network access</summary>
+
+Reads local Git repositories, Kamal hook events and deployment metadata; checks .kamal/secrets existence only; writes ~/.local/state/kamal; explicit hook setup also writes ~/.config/kamal/hook-tap and appends to project .kamal/hooks with backups; executes local CLI collectors and explicit actions; no network during default collection; optional SSH polling and user-approved Kamal terminal commands contact configured deploy hosts; no root.
+
+</details>
 
 Dependencies (review and install yourself):
 
