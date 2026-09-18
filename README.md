@@ -39,6 +39,13 @@ Optional: Kamal/Bundler, SSH and a supported terminal for deployment actions. Al
 
 ## Use
 
+The horizontal bar shows only **Kamal** and a status indicator: `○` no local
+deployment history, `↻` a local run in progress, `↑` commits ahead, `✓` a recorded
+local deployment, `?` unavailable or incomplete, and `!` an error needing attention.
+Indicators consider all discovered projects; `✓` does not certify remote health.
+Vertical bars show only the indicator. Hover for a summary; click for the project
+details and existing keyboard controls in the popover.
+
 Add this standalone Git repository with `omarchy plugin add https://github.com/tcballard/omarchy-plugin-kamal.git`, review it, then enable `io.github.tcballard.kamal` and place its widget in the bar. Development preview source is available in this repository; no tagged release or marketplace approval is claimed.
 
 The panel is native QML in Quattro. Click to open; j/k or arrows select; / searches; Escape closes. l logs; d deploy; r redeploy; b show versions then 1–5 stage rollback; a audit; v deployed version; L lock status; K stage lock acquisition with an editable message; i metadata/poll details; x acknowledge failure; p select active project; h stage hook setup. Commands that change files, deployments, plugins or processes are staged in a terminal: Enter is the review/execute boundary.
