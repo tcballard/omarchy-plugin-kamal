@@ -45,6 +45,9 @@ commits ahead, check-circle for a recorded local deployment, question-circle for
 unavailable or incomplete, warning triangle for errors, and spinner for loading.
 Glyphs inherit Omarchy's configured bar font and theme colours, matching its
 built-in icon convention; a Nerd Font with Font Awesome glyph coverage is required.
+Normal text follows the bar foreground; activity and warnings follow the bar's
+active colour (`bar.urgent`). Custom bars can provide a separate `bar.accent`
+for activity. Global theme tokens are fallbacks when the bar lacks these values.
 Indicators consider all discovered projects; `✓` does not certify remote health.
 Vertical bars show only the indicator. Hover for a summary; click for the project
 details and existing keyboard controls in the popover.

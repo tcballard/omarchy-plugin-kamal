@@ -31,12 +31,21 @@ for name,(summary,records) in fixtures.items():
     source=f'''import QtQuick
 import QtQuick.Window
 import qs.Commons
+import "{(root/'lib/qml').as_uri()}" as Shared
 import "{(root).as_uri()}" as Plugin
 Window {{
  width: 800; height: 32; visible: true
  id: scene
  property int actions: 0
  property bool vertical: false
+ property color testActive: "#123456"
+ QtObject {{ id: themeBar; property color barForeground: "#abcdef"; property color urgent: scene.testActive }}
+ QtObject {{ id: customBar; property color accent: "#654321" }}
+ Shared.StackGlyph {{ objectName: "theme-normal"; bar: themeBar }}
+ Shared.StackGlyph {{ objectName: "theme-watch"; bar: themeBar; severity: "watch" }}
+ Shared.StackGlyph {{ objectName: "theme-warn"; bar: themeBar; severity: "warn" }}
+ Shared.StackGlyph {{ objectName: "theme-custom"; bar: customBar; severity: "watch" }}
+ Shared.StackGlyph {{ objectName: "theme-fallback"; severity: "urgent" }}
  QtObject {{ id: fake; property var snapshot: ({json.dumps(fixture)}); property string message: ""; function act(id,key) {{ scene.actions++ }} }}
  QtObject {{ id: bar; property bool vertical: scene.vertical; property int barSize: 32; property color barForeground: "#e4e8df"; property string position: "top" }}
  Plugin.BarWidget {{ id: widget; objectName: "widget"; bar: bar; service: fake }}
@@ -52,6 +61,16 @@ Window {{
     if not objects:
         failed.append(name+': failed to load');continue
     scene=objects[0]
+    def foreground(name):
+        return scene.findChild(QObject,name).property('foreground').name()
+    assert foreground('theme-normal') == '#abcdef'
+    assert foreground('theme-watch') == '#123456'
+    assert foreground('theme-warn') == '#123456'
+    assert foreground('theme-custom') == '#654321'
+    assert foreground('theme-fallback') == '#fa8a80'
+    scene.setProperty('testActive','#fedcba');app.processEvents()
+    assert foreground('theme-watch') == '#fedcba', 'Activity follows live bar theme changes'
+    assert foreground('theme-warn') == '#fedcba', 'Warnings follow live bar theme changes'
     widget=scene.findChild(QObject,'widget')
     assert widget.property('barText') == 'Kamal \uf1b2', 'Horizontal label must not include project details'
     scene.setProperty('vertical',True);app.processEvents()
