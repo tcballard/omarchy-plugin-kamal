@@ -7,7 +7,7 @@ No release tag, GitHub release or marketplace issue has been created by this pre
 
 ## Remaining release steps
 
-1. Record the exact live Omarchy, Quickshell and installed plugin revisions; check removal and reinstallation. Preserve user config and state.
+1. Record the exact live Omarchy, Quickshell and installed plugin revisions; removal and reinstallation have been confirmed. Preserve user config and state.
 2. Resolve or explicitly review the advisory preflight findings in VERIFICATION.md. They are not a clean security result.
 3. Complete release preparation, merge with green CI, and record final full SHA. Confirm main has not moved.
 4. Create immutable annotated `v0.1.0` at that SHA, prepare source/checksum/provenance assets, and verify the downloaded draft release assets before publication.
@@ -41,7 +41,7 @@ _No response_
 
 ### Maintainer notes
 
-Kamal is a local-hook deployment tracker for Omarchy Quattro. The compact bar opens a native project popover. Requires Node 22+, Git, Bash, jq, Ruby and libnotify, plus a Nerd Font with Font Awesome coverage. Kamal/Bundler, SSH and a supported terminal are needed for deployment actions. Default collection reads local repositories and hook events without network access; optional SSH polling and explicitly staged terminal actions contact configured hosts. State stays in the user state directory. Hook setup is explicit, appends with backups, and leaves optional hooks for manual removal. The preview uses actual QML with host stubs and labelled fictional data. Portable tests and QML fixture checks pass; local synthetic-hook and bar testing was reported on a live desktop. Final release SHA and host/removal evidence will be added before submission. Advisory detector self-matches and runtime process/hook capabilities remain disclosed in VERIFICATION.md; checks are not a security audit.
+Kamal is a local-hook deployment tracker for Omarchy Quattro. The compact bar opens a native project popover. Requires Node 22+, Git, Bash, jq, Ruby and libnotify, plus a Nerd Font with Font Awesome coverage. Kamal/Bundler, SSH and a supported terminal are needed for deployment actions. Default collection reads local repositories and hook events without network access; optional SSH polling and explicitly staged terminal actions contact configured hosts. State stays in the user state directory. Hook setup is explicit, appends with backups, and leaves optional hooks for manual removal. The preview is a real desktop screenshot supplied by the owner, with a disposable project and simulated local hook events. Portable tests and QML fixture checks pass; local synthetic-hook and bar testing was reported on a live desktop. The live host revision and successful remove/reinstall are recorded in VERIFICATION.md; the final release SHA will be added before submission. Advisory detector self-matches and runtime process/hook capabilities remain disclosed in VERIFICATION.md; checks are not a security audit.
 
 ### Submission checklist
 

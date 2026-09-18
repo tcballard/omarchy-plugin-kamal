@@ -18,7 +18,7 @@ omarchy plugin add https://github.com/tcballard/omarchy-plugin-kamal.git
 
 Then [enable the plugin and add its bar widget](#use).
 
-**v0.1.0 release preparation.** Portable tests and QML fixture checks pass. Local hook tracking, restart persistence and the compact bar have been exercised on a live Omarchy desktop; final release checks remain. [Verification](VERIFICATION.md) · [Current limits](docs/STATUS.md) · [View the fixture preview](preview.png).
+**v0.1.0 release preparation.** Portable tests and QML fixture checks pass. Local hook tracking, restart persistence and the compact bar have been exercised on a live Omarchy desktop; final release checks remain. [Verification](VERIFICATION.md) · [Current limits](docs/STATUS.md) · [View the live preview](preview.png).
 
 <details>
 <summary>Files, processes and network access</summary>
@@ -35,7 +35,9 @@ pacman -S nodejs jq git bash ruby libnotify
 
 Optional: Kamal/Bundler, SSH and a supported terminal for deployment actions. Alacritty, Ghostty and Kitty are supported; TERMINAL must be an executable name/path without embedded arguments. No packages, hooks or shell configuration are installed by the plugin loader.
 
-![Actual QML with labelled fixture data](preview.png)
+![Kamal on a live Omarchy desktop, showing one commit ahead of a simulated local deployment](preview.png)
+
+Live desktop capture supplied by Tom Ballard, 18 September 2026. The disposable project and hook events are demonstration data; no remote deployment was performed.
 
 ## Use
 
@@ -68,7 +70,7 @@ Complements deployment CLIs and log viewers; does not run a deploy daemon.
 
 ## Verify
 
-`./tests/run` runs model tests and portable manifest validation. On Omarchy also run `omarchy plugin validate .` and test actual enable/disable, IPC, orientation, monitor and terminal behavior. The screenshot uses real Panel.qml with host stubs and fictional data; it is not a live desktop screenshot.
+`./tests/run` runs model tests and portable manifest validation. On Omarchy also run `omarchy plugin validate .` and test actual enable/disable, IPC, orientation, monitor and terminal behavior. The root preview is a live desktop screenshot with simulated local deployment data. The automated QML harness separately uses host stubs and fictional data.
 
 ## Remove
 
@@ -89,4 +91,4 @@ omarchy plugin remove io.github.tcballard.kamal
 
 ## Compatibility
 
-Targets the Quattro hosted service/bar-widget API. Live testing was reported on 18 September 2026; the exact host revision is still to be recorded. No supported version range is certified. Node 22+ is required. See [verification](VERIFICATION.md) and [remaining scope](docs/STATUS.md).
+Targets the Quattro hosted service/bar-widget API. Live testing was reported on 18 September 2026; the host revision was `4ee6d4eeea176b0bf4014ce8b82a148a9433efff`. No supported version range is certified. Node 22+ is required. See [verification](VERIFICATION.md) and [remaining scope](docs/STATUS.md).
