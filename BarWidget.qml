@@ -1,7 +1,7 @@
 import QtQuick
-import qs.Ui
+import qs.Ui as Ui
 import "lib/qml"
-BarWidget {
+Ui.BarWidget {
  id: root
  moduleName: "io.github.tcballard.kamal"
  property var service: null
