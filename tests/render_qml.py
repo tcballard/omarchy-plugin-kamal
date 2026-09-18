@@ -56,7 +56,8 @@ Window {{
     try:
         assert len(wins)==1, f'Expected one panel, got {len(wins)}'
         win=wins[0]
-        assert win.grabWindow().save(str(root/'preview.png'))
+        if '--check-only' not in sys.argv:
+            assert win.grabWindow().save(str(root/'preview.png'))
         QMetaObject.invokeMethod(scene,'closePanel');app.processEvents()
         assert not win.isVisible(), 'Close must release surface'
         QMetaObject.invokeMethod(scene,'reopen');QTest.qWait(40)
@@ -64,7 +65,7 @@ Window {{
         QTest.keyClick(win,Qt.Key.Key_Escape);app.processEvents()
         assert not win.isVisible(), 'Escape closes panel'
         if warnings: raise AssertionError('\n'.join(warnings))
-        print(name+': QML loaded; open/reopen/close/Escape passed; fixture preview captured')
+        print(name+': QML loaded; open/reopen/close/Escape passed' + ('; fixture preview captured' if '--check-only' not in sys.argv else ''))
     except Exception as e: failed.append(name+': '+str(e))
     engine.deleteLater();app.processEvents()
 if failed:
