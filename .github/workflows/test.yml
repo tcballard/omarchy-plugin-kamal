@@ -20,4 +20,9 @@ jobs:
         with:
           node-version: "22"
       - run: ./tests/run
-
+      - run: python -m pip install PySide6==6.11.2
+      - name: QML load and panel lifecycle (host stubs, not live Omarchy)
+        run: python tests/render_qml.py --check-only
+        env:
+          QT_QPA_PLATFORM: offscreen
+          QT_QUICK_BACKEND: software
