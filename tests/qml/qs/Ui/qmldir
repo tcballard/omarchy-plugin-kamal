@@ -2,3 +2,6 @@ module qs.Ui
 BarWidget 1.0 BarWidget.qml
 WidgetButton 1.0 WidgetButton.qml
 KeyboardPanel 1.0 KeyboardPanel.qml
+# Expose the host Panel name too: it must not shadow the plugin's local Panel.
+# The minimal host stub deliberately has no plugin-specific service property.
+Panel 1.0 BarWidget.qml
