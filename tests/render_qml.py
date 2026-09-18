@@ -3,7 +3,7 @@
 import json, os, sys
 from pathlib import Path
 os.environ.setdefault('QT_QPA_PLATFORM', 'offscreen')
-from PySide6.QtCore import QUrl, QMetaObject, Qt
+from PySide6.QtCore import QUrl, QMetaObject, Qt, QObject
 from PySide6.QtGui import QGuiApplication
 from PySide6.QtQuick import QQuickWindow
 from PySide6.QtQml import QQmlApplicationEngine
@@ -52,6 +52,11 @@ Window {{
     if not objects:
         failed.append(name+': failed to load');continue
     scene=objects[0]
+    widget=scene.findChild(QObject,'widget')
+    assert widget.property('barText') == 'Kamal \uf1b2', 'Horizontal label must not include project details'
+    scene.setProperty('vertical',True);app.processEvents()
+    assert widget.property('barText') == '\uf1b2', 'Vertical bar uses only the indicator'
+    scene.setProperty('vertical',False);app.processEvents()
     wins=[w for w in app.allWindows() if w.isVisible() and w.height()>100]
     try:
         assert len(wins)==1, f'Expected one panel, got {len(wins)}'

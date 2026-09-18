@@ -1,10 +1,13 @@
 import QtQuick
 import qs.Ui as Ui
 import "lib/qml"
+import "Model.js" as Model
 Ui.BarWidget {
  id: root
  moduleName: "io.github.tcballard.kamal"
  property var service: null
+ readonly property var indicator: Model.barStatus(service ? service.snapshot : null, service ? service.snapshot.error || service.snapshot.pollError || "" : "")
+ readonly property string barText: root.vertical ? indicator.icon : "Kamal " + indicator.icon
  function resolveService() { if (bar && bar.shell && typeof bar.shell.serviceFor === "function") service=bar.shell.serviceFor(moduleName) }
  onBarChanged: resolveService()
  Component.onCompleted: resolveService()
@@ -18,9 +21,9 @@ Ui.BarWidget {
   id: button
   anchors.fill: parent
   bar: root.bar
-  text: root.vertical ? "⛵" : (root.service ? root.service.snapshot.summary : "Kamal · unavailable")
-  severity: root.service ? root.service.snapshot.severity || "watch" : "warn"
-  tooltipText: "Kamal — click to open"
+  text: root.barText
+  severity: root.indicator.severity
+  tooltipText: "Kamal — " + root.indicator.label + "\n" + (root.service ? root.service.snapshot.summary || "" : "") + "\nClick for details and controls"
   onPressed: mouseButton => { if (panel.opened) panel.close(); else panel.open("") }
  }
  Panel { id: panel; bar: root.bar; anchorItem: button; hostWidget: root; service: root.service }

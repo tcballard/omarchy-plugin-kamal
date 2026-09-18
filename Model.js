@@ -13,4 +13,26 @@ function reduceEvents(events, now) {
   });
   return Object.keys(projects).map(function(k){return projects[k];});
 }
-if (typeof module!=='undefined') module.exports={reduceEvents};
+// Indicators summarise local evidence, never remote deployment health.
+// Nerd Fonts / Font Awesome: question-circle, warning, rocket, spinner,
+// code-fork, check-circle, cube. WidgetButton inherits Omarchy's bar font.
+function barStatus(snapshot, message) {
+  if (!snapshot) return {icon:'\uf059', severity:'warn', label:'Service unavailable'};
+  var rows = snapshot.rows || [];
+  if (snapshot.status === 'failed' || snapshot.error || message)
+    return {icon:'\uf071', severity:'warn', label:'Needs attention — open for details'};
+  if (rows.some(function(r){return r.severity === 'urgent';}))
+    return {icon:'\uf071', severity:'urgent', label:'Recorded deployment failure'};
+  if (rows.some(function(r){return r.incomplete;}))
+    return {icon:'\uf059', severity:'warn', label:'Incomplete local run; outcome unknown'};
+  if (rows.some(function(r){return !!r.inProgress;}))
+    return {icon:'\uf135', severity:'watch', label:'Local deployment in progress'};
+  if (snapshot.status === 'loading')
+    return {icon:'\uf110', severity:'watch', label:'Loading'};
+  if (rows.some(function(r){return r.ahead > 0;}))
+    return {icon:'\uf126', severity:'watch', label:'Commits ahead of a recorded deployment'};
+  if (rows.some(function(r){return !!r.deployed;}))
+    return {icon:'\uf058', severity:'ok', label:'Local deployment recorded; remote health not checked'};
+  return {icon:'\uf1b2', severity:'ok', label:rows.length ? 'No local deployment history' : 'No Kamal projects'};
+}
+if (typeof module!=='undefined') module.exports={reduceEvents,barStatus};
