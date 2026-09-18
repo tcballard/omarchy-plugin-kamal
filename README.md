@@ -39,9 +39,12 @@ Optional: Kamal/Bundler, SSH and a supported terminal for deployment actions. Al
 
 ## Use
 
-The horizontal bar shows only **Kamal** and a status indicator: `○` no local
-deployment history, `↻` a local run in progress, `↑` commits ahead, `✓` a recorded
-local deployment, `?` unavailable or incomplete, and `!` an error needing attention.
+The horizontal bar shows only **Kamal** and a Nerd Font status glyph: cube for no
+local deployment history, rocket for a local run in progress, Git branch for
+commits ahead, check-circle for a recorded local deployment, question-circle for
+unavailable or incomplete, warning triangle for errors, and spinner for loading.
+Glyphs inherit Omarchy's configured bar font and theme colours, matching its
+built-in icon convention; a Nerd Font with Font Awesome glyph coverage is required.
 Indicators consider all discovered projects; `✓` does not certify remote health.
 Vertical bars show only the indicator. Hover for a summary; click for the project
 details and existing keyboard controls in the popover.
