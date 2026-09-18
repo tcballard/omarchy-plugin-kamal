@@ -53,9 +53,9 @@ Window {{
         failed.append(name+': failed to load');continue
     scene=objects[0]
     widget=scene.findChild(QObject,'widget')
-    assert widget.property('barText') == 'Kamal ○', 'Horizontal label must not include project details'
+    assert widget.property('barText') == 'Kamal \uf1b2', 'Horizontal label must not include project details'
     scene.setProperty('vertical',True);app.processEvents()
-    assert widget.property('barText') == '○', 'Vertical bar uses only the indicator'
+    assert widget.property('barText') == '\uf1b2', 'Vertical bar uses only the indicator'
     scene.setProperty('vertical',False);app.processEvents()
     wins=[w for w in app.allWindows() if w.isVisible() and w.height()>100]
     try:
