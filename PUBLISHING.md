@@ -2,6 +2,10 @@
 
 Repository: https://github.com/tcballard/omarchy-plugin-kamal
 
-Plugin ID: `io.github.tcballard.kamal`. Version: `0.1.0-preview.1`.
+Plugin ID: `io.github.tcballard.kamal`. Version: `0.1.0`.
 
-Run hosted CI and live Omarchy acceptance before tagging or marketplace submission. Recommended topics: `omarchy`, `omarchy-plugin`, `kamal`. The social card is `assets/github-social-preview.png`; GitHub social-preview settings are not configured by adding this file.
+The maintainer accepted v0.1.0 on 19 September 2026. See VERIFICATION.md for recorded source identities and test scope. Marketplace submission requests listing review and does not establish approval. No marketplace availability badge is claimed before publication.
+
+Category: Developer Tools. Tags: Quickshell, Bar.
+
+The root preview is actual Panel.qml rendered with host stubs and clearly labelled fictional data; capture instructions are in demo/README.md. It is not a live desktop screenshot. The social card is assets/github-social-preview.png; adding that file does not configure GitHub social-preview settings.

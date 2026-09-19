@@ -1,5 +1,13 @@
 # Verification
 
+## v0.1.0 acceptance — 19 September 2026
+
+Tom confirmed: “I tested it. This is v0.1.0”. This records maintainer acceptance for publication. The previously supplied tested source pair was Omarchy `4ee6d4eeea176b0bf4014ce8b82a148a9433efff` and plugin `de198aae6a52786406d1eff643cdfca35a2fbdbe`. The v0.1.0 preparation changes version metadata and documentation only; runtime code and preview are unchanged.
+
+The confirmation does not enumerate additional test cases. The detailed smoke-test observations and unrecorded cases below remain historical evidence, not a claim that each case was independently rerun here. Portable tests and publication validation are rerun for the final candidate.
+
+The old JSON reports in `docs/` are original preparation artifacts, not current marketplace results. Their Cargo findings match detector strings and report text, not an actual Cargo installation path. The current upstream baseline analysis is checked separately and marketplace review remains authoritative.
+
 ## Live smoke test — 18 September 2026
 
 Tom tested main commit `3c23dfbe0e49eabac7d69780d84426b91f088c32`

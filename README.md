@@ -8,17 +8,19 @@
 
 **Your deployments, in view.**
 
-A native Omarchy bar plugin for developers deploying with Kamal. See deployment activity recorded by local hooks, the last deployed revision and commits ahead, then open logs or stage deploy and rollback commands for review in your terminal. Remote polling is opt-in.
+A native Omarchy bar plugin for developers using Kamal. Follow deployment activity from local hooks, see the last deployed revision and commits ahead, and stage deploy or rollback commands for review in your terminal. Remote polling is opt-in.
 
-On Omarchy Quattro, with the dependencies below installed:
+On Omarchy Quattro, after installing the [dependencies](#dependencies):
 
 ```sh
 omarchy plugin add https://github.com/tcballard/omarchy-plugin-kamal.git
 ```
 
-Then [enable the plugin and add its bar widget](#use).
+Then [enable Kamal and add its bar widget](#use).
 
-**Development preview · 0.1.0-preview.1.** Portable tests and QML fixture checks pass; live Omarchy acceptance is still outstanding. [Verification](VERIFICATION.md) · [Current limits](docs/STATUS.md) · [View the fixture preview](preview.png).
+**v0.1.0 · tested and accepted by the maintainer on Omarchy Quattro.** Local smoke evidence covers the widget, panel, hook records and persistence. [Testing evidence and limits](VERIFICATION.md) · [Labelled QML fixture preview](preview.png).
+
+## Dependencies
 
 <details>
 <summary>Files, processes and network access</summary>
@@ -52,7 +54,7 @@ Indicators consider all discovered projects; `✓` does not certify remote healt
 Vertical bars show only the indicator. Hover for a summary; click for the project
 details and existing keyboard controls in the popover.
 
-Add this standalone Git repository with `omarchy plugin add https://github.com/tcballard/omarchy-plugin-kamal.git`, review it, then enable `io.github.tcballard.kamal` and place its widget in the bar. Development preview source is available in this repository; no tagged release or marketplace approval is claimed.
+Add this standalone Git repository with `omarchy plugin add https://github.com/tcballard/omarchy-plugin-kamal.git`, review it, then enable `io.github.tcballard.kamal` and place its widget in the bar. Source is available in this repository. Marketplace approval is not yet claimed.
 
 The panel is native QML in Quattro. Click to open; j/k or arrows select; / searches; Escape closes. l logs; d deploy; r redeploy; b show versions then 1–5 stage rollback; a audit; v deployed version; L lock status; K stage lock acquisition with an editable message; i metadata/poll details; x acknowledge failure; p select active project; h stage hook setup. Commands that change files, deployments, plugins or processes are staged in a terminal: Enter is the review/execute boundary.
 
@@ -89,4 +91,4 @@ omarchy plugin remove io.github.tcballard.kamal
 
 ## Compatibility
 
-Targets the Quattro hosted service/bar-widget API. No live Omarchy version or supported version range is certified by this preparation. Node 22+ is required. See [verification](VERIFICATION.md) and [remaining scope](docs/STATUS.md).
+Targets the Quattro hosted service/bar-widget API. Maintainer testing used Omarchy source `4ee6d4eeea176b0bf4014ce8b82a148a9433efff`; this is not a promise of compatibility with every Quattro revision. Node 22+ is required. See [verification](VERIFICATION.md) and [remaining scope](docs/STATUS.md).
