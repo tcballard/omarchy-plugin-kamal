@@ -1,28 +1,26 @@
 # Kamal
 
+**Keep your Kamal deployments in the Omarchy bar.**
+
+See the last deployment recorded by your hooks, how many commits are waiting, and when a run fails. Open the panel to inspect a project or prepare a deploy or rollback. You review the command in your terminal before it runs.
+
 <p>
 <a href="https://github.com/tcballard/omarchy-plugin-kamal/actions/workflows/test.yml"><img alt="Tests" height="20" src="https://github.com/tcballard/omarchy-plugin-kamal/actions/workflows/test.yml/badge.svg"></a>
 <a href="LICENSE"><img alt="License: Apache-2.0" height="20" src="https://img.shields.io/badge/license-Apache--2.0-blue"></a>
 <a href="https://github.com/tcballard/omarchy-badges"><img alt="Built for Omarchy: Plugin" height="20" src="https://raw.githubusercontent.com/tcballard/omarchy-badges/75975e5b5bf75e7ede3764bcd2950046f7abfe2c/badges/v1/omarchy-plugin.svg"></a>
 </p>
 
-**Your deployments, in view.**
-
-A native Omarchy bar plugin for developers using Kamal. Follow deployment activity from local hooks, see the last deployed revision and commits ahead, and stage deploy or rollback commands for review in your terminal. Remote polling is opt-in.
-
-Kamal was [listed and snapshot-verified in the Omarchy Plugin Marketplace](https://plugins.omarchy.org/plugin.html?id=io.github.tcballard.kamal) on 20 September 2026 at commit [`59521c0`](https://github.com/tcballard/omarchy-plugin-kamal/commit/59521c064e8b6aa0dae9f05df3cda01b476c2b50). See [verification details](VERIFICATION.md#marketplace-listing--20-september-2026).
-
-On Omarchy Quattro, after installing the [dependencies](#dependencies):
+On Omarchy Quattro, install the [dependencies](#dependencies), then:
 
 ```sh
 omarchy plugin add https://github.com/tcballard/omarchy-plugin-kamal.git
+omarchy plugin enable io.github.tcballard.kamal
 ```
 
-Then [enable Kamal and add its bar widget](#use).
+Add Kamal’s widget to your bar. [Setup and controls](#use) · [Marketplace listing](https://plugins.omarchy.org/plugin.html?id=io.github.tcballard.kamal)
 
-Verification applies only to that reviewed snapshot. Installation and update commands follow upstream HEAD, which can include later, unreviewed commits; marketplace verification is not a security audit, certification or guarantee.
-
-**v0.1.0 · tested and accepted by the maintainer on Omarchy Quattro.** Local smoke evidence covers the widget, panel, hook records and persistence. [Testing evidence and limits](VERIFICATION.md) · [Labelled QML fixture preview](preview.png).
+![Kamal panel showing production three commits ahead and a staging deployment in progress, using demo data](preview.png)
+*Panel preview with fictional deployment data.*
 
 ## Dependencies
 
@@ -40,8 +38,6 @@ pacman -S nodejs jq git bash ruby libnotify
 ```
 
 Optional: Kamal/Bundler, SSH and a supported terminal for deployment actions. Alacritty, Ghostty and Kitty are supported; TERMINAL must be an executable name/path without embedded arguments. No packages, hooks or shell configuration are installed by the plugin loader.
-
-![Actual QML with labelled fixture data](preview.png)
 
 ## Use
 
@@ -73,6 +69,8 @@ Deploy actions use the foreground wrapper so a real failed exit can be recorded.
 Complements deployment CLIs and log viewers; does not run a deploy daemon.
 
 ## Verify
+
+The [marketplace listing](https://plugins.omarchy.org/plugin.html?id=io.github.tcballard.kamal) was verified on 20 September 2026 at `59521c0`. That review covers the named snapshot; install and update commands follow upstream HEAD. See the [review record and testing scope](VERIFICATION.md).
 
 `./tests/run` runs model tests and portable manifest validation. On Omarchy also run `omarchy plugin validate .` and test actual enable/disable, IPC, orientation, monitor and terminal behavior. The screenshot uses real Panel.qml with host stubs and fictional data; it is not a live desktop screenshot.
 
