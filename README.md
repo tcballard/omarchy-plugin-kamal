@@ -10,6 +10,8 @@
 
 A native Omarchy bar plugin for developers using Kamal. Follow deployment activity from local hooks, see the last deployed revision and commits ahead, and stage deploy or rollback commands for review in your terminal. Remote polling is opt-in.
 
+Kamal was [listed and snapshot-verified in the Omarchy Plugin Marketplace](https://plugins.omarchy.org/plugin.html?id=io.github.tcballard.kamal) on 20 September 2026 at commit [`59521c0`](https://github.com/tcballard/omarchy-plugin-kamal/commit/59521c064e8b6aa0dae9f05df3cda01b476c2b50). See [verification details](VERIFICATION.md#marketplace-listing--20-september-2026).
+
 On Omarchy Quattro, after installing the [dependencies](#dependencies):
 
 ```sh
@@ -17,6 +19,8 @@ omarchy plugin add https://github.com/tcballard/omarchy-plugin-kamal.git
 ```
 
 Then [enable Kamal and add its bar widget](#use).
+
+Verification applies only to that reviewed snapshot. Installation and update commands follow upstream HEAD, which can include later, unreviewed commits; marketplace verification is not a security audit, certification or guarantee.
 
 **v0.1.0 · tested and accepted by the maintainer on Omarchy Quattro.** Local smoke evidence covers the widget, panel, hook records and persistence. [Testing evidence and limits](VERIFICATION.md) · [Labelled QML fixture preview](preview.png).
 
@@ -54,7 +58,7 @@ Indicators consider all discovered projects; `✓` does not certify remote healt
 Vertical bars show only the indicator. Hover for a summary; click for the project
 details and existing keyboard controls in the popover.
 
-Add this standalone Git repository with `omarchy plugin add https://github.com/tcballard/omarchy-plugin-kamal.git`, review it, then enable `io.github.tcballard.kamal` and place its widget in the bar. Source is available in this repository. Marketplace approval is not yet claimed.
+Add this standalone Git repository with `omarchy plugin add https://github.com/tcballard/omarchy-plugin-kamal.git`, review it, then enable `io.github.tcballard.kamal` and place its widget in the bar. See the [marketplace listing](https://plugins.omarchy.org/plugin.html?id=io.github.tcballard.kamal) for the reviewed snapshot.
 
 The panel is native QML in Quattro. Click to open; j/k or arrows select; / searches; Escape closes. l logs; d deploy; r redeploy; b show versions then 1–5 stage rollback; a audit; v deployed version; L lock status; K stage lock acquisition with an editable message; i metadata/poll details; x acknowledge failure; p select active project; h stage hook setup. Commands that change files, deployments, plugins or processes are staged in a terminal: Enter is the review/execute boundary.
 
