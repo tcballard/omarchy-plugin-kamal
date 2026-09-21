@@ -19,9 +19,6 @@ omarchy plugin enable io.github.tcballard.kamal
 
 Add Kamal’s widget to your bar. [Setup and controls](#use) · [Marketplace listing](https://plugins.omarchy.org/plugin.html?id=io.github.tcballard.kamal)
 
-![Kamal panel showing production three commits ahead and a staging deployment in progress, using demo data](preview.png)
-*Panel preview with fictional deployment data.*
-
 ## Dependencies
 
 <details>
@@ -72,7 +69,7 @@ Complements deployment CLIs and log viewers; does not run a deploy daemon.
 
 The [marketplace listing](https://plugins.omarchy.org/plugin.html?id=io.github.tcballard.kamal) was verified on 20 September 2026 at `59521c0`. That review covers the named snapshot; install and update commands follow upstream HEAD. See the [review record and testing scope](VERIFICATION.md).
 
-`./tests/run` runs model tests and portable manifest validation. On Omarchy also run `omarchy plugin validate .` and test actual enable/disable, IPC, orientation, monitor and terminal behavior. The screenshot uses real Panel.qml with host stubs and fictional data; it is not a live desktop screenshot.
+`./tests/run` runs model tests and portable manifest validation. On Omarchy also run `omarchy plugin validate .` and test actual enable/disable, IPC, orientation, monitor and terminal behavior.
 
 ## Remove
 
