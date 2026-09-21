@@ -1,5 +1,13 @@
 # Verification
 
+## Marketplace listing — 20 September 2026
+
+Kamal was [listed and snapshot-verified in the Omarchy Plugin Marketplace](https://plugins.omarchy.org/plugin.html?id=io.github.tcballard.kamal) on 20 September 2026 at commit [`59521c0`](https://github.com/tcballard/omarchy-plugin-kamal/commit/59521c064e8b6aa0dae9f05df3cda01b476c2b50).
+
+The [marketplace registry](https://github.com/omacom/omarchy-plugin-marketplace/blob/main/registry.json) records listing validation at `2026-09-20T20:49:43.283Z` for the full commit `59521c064e8b6aa0dae9f05df3cda01b476c2b50`, with maintainer verification review by `HANCORE-linux`.
+
+Verification applies only to that reviewed snapshot. Installation and update commands follow upstream HEAD, which can include later, unreviewed commits; marketplace verification is not a security audit, certification or guarantee. This record does not expand the local test coverage documented below.
+
 ## v0.1.0 acceptance — 19 September 2026
 
 Tom confirmed: “I tested it. This is v0.1.0”. This records maintainer acceptance for publication. The previously supplied tested source pair was Omarchy `4ee6d4eeea176b0bf4014ce8b82a148a9433efff` and plugin `de198aae6a52786406d1eff643cdfca35a2fbdbe`. The v0.1.0 preparation changes version metadata and documentation only; runtime code and preview are unchanged.
